@@ -476,96 +476,122 @@
         </div>
     </section>
 
-    <!-- ========================================================= -->
-    <!-- 6. CALCULATOR SECTION (قسم حاسبة الشحنات والطلب الفوري) -->
-    <!-- ========================================================= -->
-    <section id="calculator" class="py-20 bg-cream-light border-t border-Reycora-cream">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-Reycora-green font-bold text-sm tracking-widest uppercase bg-white px-3 py-1 rounded-full shadow-sm" data-i18n="calc_subtitle">خدمات الوساطة والتوريد</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-Reycora-dark mt-3" data-i18n="calc_title">حاسبة تقدير الشحنات والطلب الفوري</h2>
-                <p class="text-gray-600 mt-2" data-i18n="calc_desc">حدد متطلباتك من الملابس المستعملة واحصل على تقدير أولي لخدمات الشحن والتوريد</p>
-            </div>
+   <!-- ========================================================= -->
+<!-- 6. CALCULATOR SECTION (قسم حاسبة الشحنات والطلب الفوري) -->
+<!-- ========================================================= -->
+<section id="calculator" class="py-20 bg-cream-light border-t border-Reycora-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-Reycora-green font-bold text-sm tracking-widest uppercase bg-white px-3 py-1 rounded-full shadow-sm" data-i18n="calc_subtitle">خدمات الوساطة والتوريد</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-Reycora-dark mt-3" data-i18n="calc_title">حاسبة تقدير الشحنات والطلب الفوري</h2>
+            <p class="text-gray-600 mt-2" data-i18n="calc_desc">حدد متطلباتك من الملابس المستعملة واحصل على تقدير أولي لخدمات الشحن والتوريد</p>
+        </div>
 
-            <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-6 md:p-10 border border-gray-100">
-                <form id="quoteForm" onsubmit="handleQuoteSubmit(event)" class="space-y-8">
-                    
-                    <!-- Step 1: Client Type & Region -->
-                    <div>
-                        <label class="block text-sm font-bold text-Reycora-dark mb-3" data-i18n="calc_role_label">1. بصفتك:</label>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                            <button type="button" onclick="setRole('buyer')" id="role-buyer" class="tab-btn active p-4 rounded-xl border border-gray-200 text-center font-bold text-sm transition-all">
-                                <i class="fa-solid fa-cart-shopping block text-xl mb-1"></i>
-                                <span data-i18n="calc_role_buyer">مشتري / مستورد</span>
-                            </button>
-                            <button type="button" onclick="setRole('seller')" id="role-seller" class="tab-btn p-4 rounded-xl border border-gray-200 text-center font-bold text-sm transition-all">
-                                <i class="fa-solid fa-boxes-packing block text-xl mb-1"></i>
-                                <span data-i18n="calc_role_seller">مورد / جامع ملابس</span>
-                            </button>
-                            <button type="button" onclick="setRole('collector')" id="role-collector" class="tab-btn p-4 rounded-xl border border-gray-200 text-center font-bold text-sm transition-all col-span-2 md:col-span-1">
-                                <i class="fa-solid fa-city block text-xl mb-1"></i>
-                                <span data-i18n="calc_role_tech">طلب نظام جمع ذكي</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Step 2: Region Selection -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-bold text-Reycora-dark mb-2" data-i18n="calc_region_label">2. المنطقة الجغرافية المستهدفة:</label>
-                            <select id="regionSelect" onchange="calculateEstimate()" class="w-full p-3.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-Reycora-green focus:border-Reycora-green bg-gray-50 text-sm font-medium">
-                                <option value="middle_east" data-i18n="region_me">الشرق الأوسط وشمال أفريقيا (MENA)</option>
-                                <option value="africa" data-i18n="region_af">أفريقيا (Sub-Saharan Africa)</option>
-                                <option value="europe" data-i18n="region_eu">أوروبا (Europe)</option>
-                                <option value="latam" data-i18n="region_latam">أمريكا اللاتينية (Latin America)</option>
-                            </select>
-                        </div>
-
-                        <!-- Step 3: Grade Quality Selection -->
-                        <div>
-                            <label class="block text-sm font-bold text-Reycora-dark mb-2" data-i18n="calc_grade_label">3. الفئة والمواصفة (Grade):</label>
-                            <select id="gradeSelect" onchange="calculateEstimate()" class="w-full p-3.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-Reycora-green focus:border-Reycora-green bg-gray-50 text-sm font-medium">
-                                <option value="grade_a" data-i18n="grade_a">فئة أ ممتاز (Grade A - Cream Quality)</option>
-                                <option value="grade_b" data-i18n="grade_b">فئة ب جيدة جداً (Grade B - Standard Mix)</option>
-                                <option value="vintage" data-i18n="grade_v">فينتج ومصممين (Vintage & Branded)</option>
-                                <option value="rags" data-i18n="grade_r">قطع قماش للتدوير Industrial Rags / Recycling</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Step 4: Volume Slider -->
-                    <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <label class="block text-sm font-bold text-Reycora-dark" data-i18n="calc_vol_label">4. الكمية المطلوبة / المعروضة (بالأطنان):</label>
-                            <span class="text-xl font-extrabold text-Reycora-green" id="volumeValue">25 طن</span>
-                        </div>
-                        <input type="range" id="volumeSlider" min="5" max="250" step="5" value="25" oninput="updateVolume(this.value)" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-Reycora-green">
-                        <div class="flex justify-between text-xs text-gray-400 mt-1">
-                            <span>5 طن</span>
-                            <span>100 طن</span>
-                            <span>250+ طن</span>
-                        </div>
-                    </div>
-
-                    <!-- Calculated Result Box -->
-                    <div class="bg-Reycora-dark text-white rounded-2xl p-6 flex flex-col md:flex-row justify-between items-center gap-6">
-                        <div>
-                            <div class="text-xs text-gray-300" data-i18n="calc_res_title">التقدير المبدئي للسعة والخدمات اللوجستية:</div>
-                            <div class="text-2xl md:text-3xl font-black text-Reycora-light mt-1" id="estimatedPrice">~ $2,500 - $3,250</div>
-                            <div class="text-[11px] text-gray-300 mt-1" data-i18n="calc_res_sub">*يشمل الفرز والخدمات اللوجستية وتغطية التأمين التصديري</div>
-                        </div>
-                        
-                        <button type="submit" class="w-full md:w-auto px-8 py-3.5 bg-Reycora-light hover:bg-white text-Reycora-dark font-black rounded-xl transition-all shadow-lg text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                            <i class="fa-solid fa-paper-plane"></i>
-                            <span data-i18n="calc_submit">تأكيد إرسال الطلب الرسمي</span>
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-6 md:p-10 border border-gray-100">
+            <form id="quoteForm" onsubmit="handleQuoteSubmit(event)" class="space-y-8">
+                
+                <!-- Step 1: Client Type -->
+                <div>
+                    <label class="block text-sm font-bold text-Reycora-dark mb-3" data-i18n="calc_role_label">1. بصفتك:</label>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <button type="button" onclick="setRole('buyer')" id="role-buyer" class="tab-btn active p-4 rounded-xl border border-gray-200 text-center font-bold text-sm transition-all">
+                            <i class="fa-solid fa-cart-shopping block text-xl mb-1"></i>
+                            <span data-i18n="calc_role_buyer">مشتري / مستورد</span>
+                        </button>
+                        <button type="button" onclick="setRole('seller')" id="role-seller" class="tab-btn p-4 rounded-xl border border-gray-200 text-center font-bold text-sm transition-all">
+                            <i class="fa-solid fa-boxes-packing block text-xl mb-1"></i>
+                            <span data-i18n="calc_role_seller">مورد / جامع ملابس</span>
+                        </button>
+                        <button type="button" onclick="setRole('collector')" id="role-collector" class="tab-btn p-4 rounded-xl border border-gray-200 text-center font-bold text-sm transition-all col-span-2 md:col-span-1">
+                            <i class="fa-solid fa-city block text-xl mb-1"></i>
+                            <span data-i18n="calc_role_tech">طلب نظام جمع ذكي</span>
                         </button>
                     </div>
+                </div>
 
-                </form>
-            </div>
+                <!-- Step 2: Region & Grade Selection -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-bold text-Reycora-dark mb-2" data-i18n="calc_region_label">2. المنطقة الجغرافية المستهدفة:</label>
+                        <select id="regionSelect" onchange="calculateEstimate()" class="w-full p-3.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-Reycora-green focus:border-Reycora-green bg-gray-50 text-sm font-medium">
+                            <option value="middle_east" data-i18n="region_me">الشرق الأوسط وشمال أفريقيا (MENA)</option>
+                            <option value="africa" data-i18n="region_af">أفريقيا (Sub-Saharan Africa)</option>
+                            <option value="europe" data-i18n="region_eu">أوروبا (Europe)</option>
+                            <option value="latam" data-i18n="region_latam">أمريكا اللاتينية (Latin America)</option>
+                        </select>
+                    </div>
+
+                    <!-- Step 3: Grade Quality Selection -->
+                    <div>
+                        <label class="block text-sm font-bold text-Reycora-dark mb-2" data-i18n="calc_grade_label">3. الفئة والمواصفة (Grade):</label>
+                        <select id="gradeSelect" onchange="calculateEstimate()" class="w-full p-3.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-Reycora-green focus:border-Reycora-green bg-gray-50 text-sm font-medium">
+                            <option value="grade_a" data-i18n="grade_a">فئة أ ممتاز (Grade A - Cream Quality)</option>
+                            <option value="grade_b" data-i18n="grade_b">فئة ب جيدة جداً (Grade B - Standard Mix)</option>
+                            <option value="vintage" data-i18n="grade_v">فينتج ومصممين (Vintage & Branded)</option>
+                            <option value="rags" data-i18n="grade_r">قطع قماش للتدوير Industrial Rags / Recycling</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Step 4: Volume Slider (بدون تغيير) -->
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="block text-sm font-bold text-Reycora-dark" data-i18n="calc_vol_label">4. الكمية المطلوبة / المعروضة (بالأطنان):</label>
+                        <span class="text-xl font-extrabold text-Reycora-green" id="volumeValue">25 طن</span>
+                    </div>
+                    <input type="range" id="volumeSlider" min="5" max="250" step="5" value="25" oninput="updateVolume(this.value)" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-Reycora-green">
+                    <div class="flex justify-between text-xs text-gray-400 mt-1">
+                        <span>5 طن</span>
+                        <span>100 طن</span>
+                        <span>250+ طن</span>
+                    </div>
+                </div>
+
+                <!-- Step 5: Contact Details & Notes (الخانات الجديدة) -->
+                <div class="pt-4 border-t border-gray-100">
+                    <label class="block text-sm font-bold text-Reycora-dark mb-4" data-i18n="calc_contact_label">5. بيانات مقدم الطلب:</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1" data-i18n="calc_name">الاسم الكامل *</label>
+                            <input type="text" required class="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-Reycora-green focus:border-Reycora-green text-sm bg-gray-50" placeholder="الاسم الأول والأخير">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1" data-i18n="calc_email">البريد الإلكتروني *</label>
+                            <input type="email" required class="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-Reycora-green focus:border-Reycora-green text-sm bg-gray-50" placeholder="name@company.com">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1" data-i18n="calc_phone">رقم الهاتف / الواتساب *</label>
+                            <input type="tel" required class="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-Reycora-green focus:border-Reycora-green text-sm bg-gray-50" placeholder="+966 ...">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1" data-i18n="calc_company">اسم الشركة / المؤسسة</label>
+                            <input type="text" class="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-Reycora-green focus:border-Reycora-green text-sm bg-gray-50" placeholder="اسم المنشأة التجاربة">
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <label class="block text-xs font-bold text-gray-700 mb-1" data-i18n="calc_notes">ملاحظات إضافية / تفاصيل الشحنة</label>
+                        <textarea rows="3" class="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-Reycora-green focus:border-Reycora-green text-sm bg-gray-50" placeholder="أي متطلبات خاصة بالترزيم، الوجهة الدقيقة، أو التغليف..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Calculated Result Box -->
+                <div class="bg-Reycora-dark text-white rounded-2xl p-6 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div>
+                        <div class="text-xs text-gray-300" data-i18n="calc_res_title">التقدير المبدئي للسعة والخدمات اللوجستية:</div>
+                        <div class="text-2xl md:text-3xl font-black text-Reycora-light mt-1" id="estimatedPrice">~ $2,500 - $3,250</div>
+                        <div class="text-[11px] text-gray-300 mt-1" data-i18n="calc_res_sub">*يشمل الفرز والخدمات اللوجستية وتغطية التأمين التصديري</div>
+                    </div>
+                    
+                    <button type="submit" class="w-full md:w-auto px-8 py-3.5 bg-Reycora-light hover:bg-white text-Reycora-dark font-black rounded-xl transition-all shadow-lg text-center flex items-center justify-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span data-i18n="calc_submit">تأكيد إرسال الطلب الرسمي</span>
+                    </button>
+                </div>
+
+            </form>
         </div>
-    </section>
-
+    </div>
+</section>
     <!-- ========================================================= -->
     <!-- 7. GLOBAL COVERAGE SECTION (قسم النطاق والتغطية العالمية) -->
     <!-- ========================================================= -->
