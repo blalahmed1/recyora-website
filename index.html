@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recyora | ريسيورا - دورة جديدة. قيمة جديدة.</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        recyora: {
+                            dark: '#0F3D2E',
+                            green: '#2E7D32',
+                            light: '#8BC34A',
+                            cream: '#E8E0CF',
+                            gray: '#757575',
+                            accent: '#1b5e20'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Tajawal', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Tajawal', 'Inter', sans-serif;
+            background-color: #fcfbf7;
+            color: #2d3748;
+            overflow-x: hidden;
+        }
+        .bg-cream-light {
+            background-color: #f7f4ed;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .custom-shape-divider-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .custom-shape-divider-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+        /* RTL & LTR specific tweaks */
+        [dir="rtl"] .ltr-only { display: none !important; }
+        [dir="ltr"] .rtl-only { display: none !important; }
+        
+        .tab-btn.active {
+            background-color: #0F3D2E;
+            color: #ffffff;
+            border-color: #0F3D2E;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-recyora-light selection:text-recyora-dark">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all duration-300 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-full bg-recyora-dark flex items-center justify-center text-white text-2xl font-bold shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-leaf text-recyora-light"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-extrabold tracking-tight text-recyora-dark flex items-center gap-1">
+                            Recyora <span class="text-xs font-normal text-recyora-green border border-recyora-green/30 px-1.5 py-0.5 rounded-full">®</span>
+                        </span>
+                        <span class="text-xs text-recyora-gray font-medium tracking-wide">
+                            <span data-i18n="tagline_short">دورة جديدة. قيمة جديدة.</span>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-700">
+                    <a href="#about" class="hover:text-recyora-green transition-colors" data-i18n="nav_about">عن ريسيورا</a>
+                    <a href="#pillars" class="hover:text-recyora-green transition-colors" data-i18n="nav_pillars">ركائزنا</a>
+                    <a href="#solutions" class="hover:text-recyora-green transition-colors" data-i18n="nav_solutions">الحلول الذكية</a>
+                    <a href="#calculator" class="hover:text-recyora-green transition-colors" data-i18n="nav_calculator">حاسبة التجارة</a>
+                    <a href="#coverage" class="hover:text-recyora-green transition-colors" data-i18n="nav_coverage">النطاق العالمي</a>
+                    <a href="#contact" class="hover:text-recyora-green transition-colors" data-i18n="nav_contact">تواصل معنا</a>
+                </nav>
+
+                <!-- Action Controls -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <!-- Language Switcher Button -->
+                    <button id="langToggleBtn" onclick="toggleLanguage()" class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 text-xs font-bold text-gray-700 hover:bg-recyora-cream/40 transition-colors shadow-sm">
+                        <i class="fa-solid fa-globe text-recyora-green"></i>
+                        <span id="langText">English</span>
+                    </button>
+
+                    <!-- CTA Button -->
+                    <a href="#calculator" class="px-5 py-2.5 bg-recyora-dark hover:bg-recyora-green text-white font-bold text-sm rounded-xl transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2">
+                        <i class="fa-solid fa-handshake-simple"></i>
+                        <span data-i18n="nav_cta">اطلب عرض سعر</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex md:hidden items-center gap-3">
+                    <button onclick="toggleLanguage()" class="p-2 rounded-lg border border-gray-200 text-xs font-bold text-gray-700">
+                        <span id="mobileLangText">EN</span>
+                    </button>
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="text-gray-700 p-2 text-xl focus:outline-none">
+                        <i class="fa-solid fa-bars" id="menuIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 font-semibold hover:text-recyora-green" data-i18n="nav_about">عن ريسيورا</a>
+            <a href="#pillars" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 font-semibold hover:text-recyora-green" data-i18n="nav_pillars">ركائزنا</a>
+            <a href="#solutions" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 font-semibold hover:text-recyora-green" data-i18n="nav_solutions">الحلول الذكية</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 font-semibold hover:text-recyora-green" data-i18n="nav_calculator">حاسبة التجارة</a>
+            <a href="#coverage" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 font-semibold hover:text-recyora-green" data-i18n="nav_coverage">النطاق العالمي</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 font-semibold hover:text-recyora-green" data-i18n="nav_contact">تواصل معنا</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="mt-4 w-full text-center block py-3 bg-recyora-dark text-white font-bold rounded-xl" data-i18n="nav_cta">اطلب عرض سعر</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-b from-recyora-dark to-emerald-950 text-white overflow-hidden pt-12 pb-24 md:pt-20 md:pb-32">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#8BC34A_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Content Left/Right -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-right" id="heroTextContainer">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-recyora-green/30 border border-recyora-light/40 text-recyora-light font-medium text-xs md:text-sm">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <span data-i18n="hero_badge">وسيط عالمي مالي ولوجستي للملابس المستعملة</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+                        <span class="block text-white">Recyora ®</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-recyora-light via-emerald-300 to-emerald-100" data-i18n="hero_title">
+                            دورة جديدة. قيمة جديدة.
+                        </span>
+                    </h1>
+
+                    <p class="text-lg md:text-xl text-gray-200 font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed" data-i18n="hero_desc">
+                        ربط الموردين والتجار في الشرق الأوسط، أفريقيا، أمريكا اللاتينية، وأوروبا. نقدم منصة متكاملة للحلول الذكية لإدارة وتجميع وإعادة تدوير الملابس المستعملة وفق أعلى المعايير المستدامة.
+                    </p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#calculator" class="px-8 py-4 bg-recyora-light text-recyora-dark font-extrabold rounded-xl hover:bg-white transition-all shadow-lg text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-calculator"></i>
+                            <span data-i18n="hero_cta_primary">حساب تكلفة الشحنة / العرض</span>
+                        </a>
+                        <a href="#solutions" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold border border-white/20 rounded-xl transition-all text-center flex items-center justify-center gap-2 backdrop-blur-sm">
+                            <i class="fa-solid fa-microchip"></i>
+                            <span data-i18n="hero_cta_secondary">استكشف الحلول الذكية</span>
+                        </a>
+                    </div>
+
+                    <!-- Statistics Counter Bar -->
+                    <div class="pt-10 grid grid-cols-3 gap-4 border-t border-white/15 mt-8">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-recyora-light" id="stat1">+150K</div>
+                            <div class="text-xs sm:text-sm text-gray-300 font-medium" data-i18n="stat_tons">طن من الملابس سنوياً</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-recyora-light" id="stat2">4</div>
+                            <div class="text-xs sm:text-sm text-gray-300 font-medium" data-i18n="stat_continents">قارات مغطاة بفعالية</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-recyora-light" id="stat3">+1,200</div>
+                            <div class="text-xs sm:text-sm text-gray-300 font-medium" data-i18n="stat_partners">شريك ومورد موثوق</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphics/Illustration Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-white/10 to-white/5 p-6 border border-white/20 backdrop-blur-md">
+                        <div class="space-y-6">
+                            <!-- Visual Brand Asset Graphic -->
+                            <div class="bg-recyora-cream/90 rounded-2xl p-6 text-recyora-dark shadow-inner text-center relative">
+                                <div class="absolute top-3 right-3 text-recyora-green text-xs font-bold bg-white px-2 py-0.5 rounded-full border border-recyora-green/20">
+                                    Recyora Eco System
+                                </div>
+                                <i class="fa-solid fa-recycle text-6xl text-recyora-green my-3 animate-spin-slow"></i>
+                                <h3 class="text-xl font-bold" data-i18n="card_title">المنظومة التداولية الذكية</h3>
+                                <p class="text-xs text-recyora-gray mt-2" data-i18n="card_subtitle">من الجمع والفرز إلى الشحن والدعم اللوجستي العالمي</p>
+                            </div>
+
+                            <!-- Process Flow Preview -->
+                            <div class="grid grid-cols-2 gap-3 text-xs text-white">
+                                <div class="p-3 bg-white/10 rounded-xl border border-white/10 flex items-center gap-3">
+                                    <i class="fa-solid fa-truck-ramp-box text-recyora-light text-xl"></i>
+                                    <div>
+                                        <div class="font-bold" data-i18n="pill_1">1. نجمع (Collect)</div>
+                                        <div class="text-[10px] text-gray-300" data-i18n="pill_1_sub">حلول تجميع IoT</div>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-white/10 rounded-xl border border-white/10 flex items-center gap-3">
+                                    <i class="fa-solid fa-rotate text-recyora-light text-xl"></i>
+                                    <div>
+                                        <div class="font-bold" data-i18n="pill_2">2. نُعيد الاستخدام</div>
+                                        <div class="text-[10px] text-gray-300" data-i18n="pill_2_sub">وساطة وفرز جودة</div>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-white/10 rounded-xl border border-white/10 flex items-center gap-3">
+                                    <i class="fa-solid fa-arrows-spin text-recyora-light text-xl"></i>
+                                    <div>
+                                        <div class="font-bold" data-i18n="pill_3">3. نُعيد التدوير</div>
+                                        <div class="text-[10px] text-gray-300" data-i18n="pill_3_sub">معالجة صديقة للبيئة</div>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-white/10 rounded-xl border border-white/10 flex items-center gap-3">
+                                    <i class="fa-solid fa-chart-line text-recyora-light text-xl"></i>
+                                    <div>
+                                        <div class="font-bold" data-i18n="pill_4">4. نَصنع قيمة</div>
+                                        <div class="text-[10px] text-gray-300" data-i18n="pill_4_sub">أسواق دولية جديدة</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Wave Divider Bottom -->
+        <div class="custom-shape-divider-bottom text-fcfbf7 fill-current">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,121.61,192,117.8,235.8,115.1,279.16,102.1,321.39,56.44Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-recyora-green font-bold text-sm tracking-widest uppercase bg-recyora-cream/50 px-3 py-1 rounded-full" data-i18n="about_subtitle">عن الشركة</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-recyora-dark mt-3" data-i18n="about_title">الوسيط العالمي الموثوق لتجارة وإدارة الملابس المستعملة</h2>
+                <div class="w-16 h-1 bg-recyora-light mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="p-8 rounded-2xl bg-cream-light border border-recyora-cream/60 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-recyora-dark text-recyora-light rounded-xl flex items-center justify-center text-2xl mb-6 shadow-md">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-recyora-dark mb-3" data-i18n="about_c1_title">ربط الأقاليم العالمية</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm" data-i18n="about_c1_desc">
+                        نعمل كجسر لوجستي وتجاري بين الأسواق الكبرى في أوروبا، الشرق الأوسط، أفريقيا، وأمريكا اللاتينية لضمان التدفق السلس للشحنات عالية الجودة.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-8 rounded-2xl bg-cream-light border border-recyora-cream/60 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-recyora-green text-white rounded-xl flex items-center justify-center text-2xl mb-6 shadow-md">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-recyora-dark mb-3" data-i18n="about_c2_title">حلول التجميع الذكي</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm" data-i18n="about_c2_desc">
+                        نوفر تقنيات الحاويات الذكية (IoT) ومحطات الفرز الرقمية التي تمكّن البلديات والشركات من تتبع كميات الجمع وإدارتها بكفاءة عالية.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-8 rounded-2xl bg-cream-light border border-recyora-cream/60 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-recyora-light text-recyora-dark rounded-xl flex items-center justify-center text-2xl mb-6 shadow-md">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-recyora-dark mb-3" data-i18n="about_c3_title">ضمان الجودة والشفافية</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm" data-i18n="about_c3_desc">
+                        نعتمد معايير فرز وتصنيف صارمة (Grade A, B, C, Vintage, Rags) لضمان حصول المشتري على الفئات المطابقة تماماً للمواصفات المطلوبة.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Pillars Section -->
+    <section id="pillars" class="py-20 bg-recyora-cream/30 border-y border-recyora-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-recyora-green font-bold text-sm tracking-widest uppercase bg-white px-3 py-1 rounded-full shadow-sm" data-i18n="pillars_subtitle">دورة العمل في ريسيورا</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-recyora-dark mt-3" data-i18n="pillars_title">الركائز الأربع للتحول المستدام</h2>
+                <p class="text-gray-600 mt-2" data-i18n="pillars_desc">نموذج تشغيلي شامل يدعم الاستدامة الاقتصادية والبيئية في كافة المراحل</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Pillar 1 -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 left-0 h-2 bg-recyora-dark"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-recyora-dark/10 text-recyora-dark flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-truck-pickup"></i>
+                    </div>
+                    <span class="text-xs font-bold text-recyora-gray tracking-wider uppercase" data-i18n="p1_step">المرحلة 01</span>
+                    <h3 class="text-2xl font-black text-recyora-dark my-2" data-i18n="p1_title">Collect / نجمع</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed" data-i18n="p1_desc">
+                        تجميع ودعم الخدمات اللوجستية للملابس المستعملة باستخدام التقنيات الذكية ومحاور الجمع المنظمة.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 left-0 h-2 bg-recyora-green"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-recyora-green/10 text-recyora-green flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-recycle"></i>
+                    </div>
+                    <span class="text-xs font-bold text-recyora-gray tracking-wider uppercase" data-i18n="p2_step">المرحلة 02</span>
+                    <h3 class="text-2xl font-black text-recyora-dark my-2" data-i18n="p2_title">Reuse / نُعيد الاستخدام</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed" data-i18n="p2_desc">
+                        تسهيل عمليات التجارة والوساطة للملابس القابلة للارتداء مجدداً وضمان تصنيفها بدقة للأسواق.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 left-0 h-2 bg-recyora-light"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-recyora-light/20 text-recyora-green flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-arrows-spin"></i>
+                    </div>
+                    <span class="text-xs font-bold text-recyora-gray tracking-wider uppercase" data-i18n="p3_step">المرحلة 03</span>
+                    <h3 class="text-2xl font-black text-recyora-dark my-2" data-i18n="p3_title">Recycle / نُعيد التدوير</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed" data-i18n="p3_desc">
+                        تحويل النسيج التالف أو غير القابل للارتداء إلى ألياف خام وصناعات نسيجية صديقة للبيئة.
+                    </p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 left-0 h-2 bg-emerald-600"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <span class="text-xs font-bold text-recyora-gray tracking-wider uppercase" data-i18n="p4_step">المرحلة 04</span>
+                    <h3 class="text-2xl font-black text-recyora-dark my-2" data-i18n="p4_title">Create Value / نَصنع قيمة</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed" data-i18n="p4_desc">
+                        تعظيم العوائد للشركاء والمجتمعات من خلال خلق أسواق اقتصاد دائرية وعوائد مستدامة.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Collection & Management Solutions Section -->
+    <section id="solutions" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-recyora-green font-bold text-sm tracking-widest uppercase bg-recyora-cream/60 px-3 py-1 rounded-full" data-i18n="sol_subtitle">التقنيات المستقلة</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-recyora-dark" data-i18n="sol_title">حلول ذكية لإدارة وتجميع الملابس المستعملة</h2>
+                    <p class="text-gray-600 leading-relaxed" data-i18n="sol_desc">
+                        نفرّد منظومتنا بتوفير حلول رقمية وهندسية متكاملة للبلديات، الجمعيات، والمؤسسات لتسهيل تجميع النسيج المستعمل وإدارته بكفاءة عالية.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-cream-light border border-recyora-cream/40">
+                            <div class="p-3 bg-recyora-dark text-recyora-light rounded-lg text-xl flex-shrink-0">
+                                <i class="fa-solid fa-wifi"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-recyora-dark text-lg" data-i18n="sol_f1_title">حاويات جمع ذكية مدعومة بالـ IoT</h4>
+                                <p class="text-gray-600 text-sm mt-1" data-i18n="sol_f1_desc">مستشعرات قياس نسبة الامتلاء الفوري، التنبيه الذاتي للشرائح اللوجستية، وتفادي الطفح.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-cream-light border border-recyora-cream/40">
+                            <div class="p-3 bg-recyora-green text-white rounded-lg text-xl flex-shrink-0">
+                                <i class="fa-solid fa-diagram-project"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-recyora-dark text-lg" data-i18n="sol_f2_title">منظومة الفرز والخدمات اللوجستية</h4>
+                                <p class="text-gray-600 text-sm mt-1" data-i18n="sol_f2_desc">خطط مسارات تجميع محسّنة خوارزمياً لتقليل الانبعاثات الكربونية للشاحنات بنسبة تصل إلى 35%.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-cream-light border border-recyora-cream/40">
+                            <div class="p-3 bg-recyora-light text-recyora-dark rounded-lg text-xl flex-shrink-0">
+                                <i class="fa-solid fa-cubes"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-recyora-dark text-lg" data-i18n="sol_f3_title">لوحة تحليلات وتتبع الشحنات</h4>
+                                <p class="text-gray-600 text-sm mt-1" data-i18n="sol_f3_desc">منصة رقمية موحدة للعملاء لمتابعة حركة الشحنات، أوزان الملابس، والتأثير البيئي بدقة.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="bg-gradient-to-br from-recyora-dark to-emerald-900 rounded-3xl p-8 text-white relative shadow-2xl overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-recyora-light/10 rounded-full blur-3xl"></div>
+                        
+                        <h3 class="text-2xl font-extrabold mb-6 flex items-center gap-3">
+                            <i class="fa-solid fa-sliders text-recyora-light"></i>
+                            <span data-i18n="dashboard_preview_title">لوحة تتبع الحاويات الذكية</span>
+                        </h3>
+
+                        <!-- Interactive Mock Dashboard Elements -->
+                        <div class="space-y-4 bg-white/10 p-5 rounded-2xl backdrop-blur-sm border border-white/10">
+                            <div class="flex justify-between items-center pb-3 border-b border-white/10">
+                                <div>
+                                    <div class="text-xs text-gray-300" data-i18n="dash_bin">حاوية رقم: #RY-8802 (الرياض)</div>
+                                    <div class="font-bold text-sm" data-i18n="dash_status">الحالة: نوصي بالإخلاء اليوم</div>
+                                </div>
+                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded-full text-xs font-bold">88% امتلاء</span>
+                            </div>
+
+                            <div class="w-full bg-white/20 h-3 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-recyora-light to-amber-400 h-full w-[88%] rounded-full"></div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-2 text-xs pt-2">
+                                <div class="bg-white/5 p-2 rounded-lg">
+                                    <span class="text-gray-400 block" data-i18n="dash_weight">الوزن التقديري:</span>
+                                    <span class="font-bold text-recyora-light">420 KG</span>
+                                </div>
+                                <div class="bg-white/5 p-2 rounded-lg">
+                                    <span class="text-gray-400 block" data-i18n="dash_grade">الفئة الغالبة:</span>
+                                    <span class="font-bold text-recyora-light">Grade A Mix</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-300">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-recyora-light animate-ping"></span>
+                                <span data-i18n="dash_live">تحديث مباشر مستمر</span>
+                            </span>
+                            <a href="#contact" class="text-recyora-light hover:underline font-bold" data-i18n="dash_demo">طلب نسخة تجريبية ←</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Trading / Quotation Calculator -->
+    <section id="calculator" class="py-20 bg-cream-light border-t border-recyora-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-recyora-green font-bold text-sm tracking-widest uppercase bg-white px-3 py-1 rounded-full shadow-sm" data-i18n="calc_subtitle">خدمات الوساطة والتوريد</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-recyora-dark mt-3" data-i18n="calc_title">حاسبة تقدير الشحنات والطلب الفوري</h2>
+                <p class="text-gray-600 mt-2" data-i18n="calc_desc">حدد متطلباتك من الملابس المستعملة واحصل على تقدير أولي لخدمات الشحن والتوريد</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-6 md:p-10 border border-gray-100">
+                <form id="quoteForm" onsubmit="handleQuoteSubmit(event)" class="space-y-8">
+                    
+                    <!-- Step 1: Client Type & Region -->
+                    <div>
+                        <label class="block text-sm font-bold text-recyora-dark mb-3" data-i18n="calc_role_label">1. بصفتك:</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <button type="button" onclick="setRole('buyer')" id="role-buyer" class="tab-btn active p-4 rounded-xl border border-gray-200 text-center font-bold text-sm transition-all">
+                                <i class="fa-solid fa-cart-shopping block text-xl mb-1"></i>
+                                <span data-i18n="calc_role_buyer">مشتري / مستورد</span>
+                            </button>
+                            <button type="button" onclick="setRole('seller')" id="role-seller" class="tab-btn p-4 rounded-xl border border-gray-200 text-center font-bold text-sm transition-all">
+                                <i class="fa-solid fa-boxes-packing block text-xl mb-1"></i>
+                                <span data-i18n="calc_role_seller">مورد / جامع ملابس</span>
+                            </button>
+                            <button type="button" onclick="setRole('collector')" id="role-collector" class="tab-btn p-4 rounded-xl border border-gray-200 text-center font-bold text-sm transition-all col-span-2 md:col-span-1">
+                                <i class="fa-solid fa-city block text-xl mb-1"></i>
+                                <span data-i18n="calc_role_tech">طلب نظام جمع ذكي</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Region Selection -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-recyora-dark mb-2" data-i18n="calc_region_label">2. المنطقة الجغرافية المستهدفة:</label>
+                            <select id="regionSelect" onchange="calculateEstimate()" class="w-full p-3.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-recyora-green focus:border-recyora-green bg-gray-50 text-sm font-medium">
+                                <option value="middle_east" data-i18n="region_me">الشرق الأوسط وشمال أفريقيا (MENA)</option>
+                                <option value="africa" data-i18n="region_af">أفريقيا (Sub-Saharan Africa)</option>
+                                <option value="europe" data-i18n="region_eu">أوروبا (Europe)</option>
+                                <option value="latam" data-i18n="region_latam">أمريكا اللاتينية (Latin America)</option>
+                            </select>
+                        </div>
+
+                        <!-- Step 3: Grade Quality Selection -->
+                        <div>
+                            <label class="block text-sm font-bold text-recyora-dark mb-2" data-i18n="calc_grade_label">3. الفئة والمواصفة (Grade):</label>
+                            <select id="gradeSelect" onchange="calculateEstimate()" class="w-full p-3.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-recyora-green focus:border-recyora-green bg-gray-50 text-sm font-medium">
+                                <option value="grade_a" data-i18n="grade_a">فئة أ ممتاز (Grade A - Cream Quality)</option>
+                                <option value="grade_b" data-i18n="grade_b">فئة ب جيدة جداً (Grade B - Standard Mix)</option>
+                                <option value="vintage" data-i18n="grade_v">فينتج ومصممين (Vintage & Branded)</option>
+                                <option value="rags" data-i18n="grade_r">قطع قماش للتدوير Industrial Rags / Recycling</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Volume Slider -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="block text-sm font-bold text-recyora-dark" data-i18n="calc_vol_label">4. الكمية المطلوبة / المعروضة (بالأطنان):</label>
+                            <span class="text-xl font-extrabold text-recyora-green" id="volumeValue">25 طن</span>
+                        </div>
+                        <input type="range" id="volumeSlider" min="5" max="250" step="5" value="25" oninput="updateVolume(this.value)" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-recyora-green">
+                        <div class="flex justify-between text-xs text-gray-400 mt-1">
+                            <span>5 طن</span>
+                            <span>100 طن</span>
+                            <span>250+ طن</span>
+                        </div>
+                    </div>
+
+                    <!-- Calculated Result Box -->
+                    <div class="bg-recyora-dark text-white rounded-2xl p-6 flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div>
+                            <div class="text-xs text-gray-300" data-i18n="calc_res_title">التقدير المبدئي للسعة والخدمات اللوجستية:</div>
+                            <div class="text-2xl md:text-3xl font-black text-recyora-light mt-1" id="estimatedPrice">~ $17,500 - $22,000</div>
+                            <div class="text-[11px] text-gray-300 mt-1" data-i18n="calc_res_sub">*يشمل الفرز والخدمات اللوجستية وتغطية التأمين التصديري</div>
+                        </div>
+                        
+                        <button type="submit" class="w-full md:w-auto px-8 py-3.5 bg-recyora-light hover:bg-white text-recyora-dark font-black rounded-xl transition-all shadow-lg text-center flex items-center justify-center gap-2 whitespace-nowrap">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span data-i18n="calc_submit">تأكيد إرسال الطلب الرسمي</span>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Operations & Coverage Section -->
+    <section id="coverage" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-recyora-green font-bold text-sm tracking-widest uppercase bg-recyora-cream/50 px-3 py-1 rounded-full" data-i18n="map_subtitle">شبكة العمليات العالمية</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-recyora-dark mt-3" data-i18n="map_title">تغطي عملياتنا أربع قارات رئيسية</h2>
+                <p class="text-gray-600 mt-2" data-i18n="map_desc">نصل بين مناطق الجمع العالية الحجم ومناطق الطلب النشط لإنشاء منظومة مستدامة</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Region 1 -->
+                <div class="p-6 rounded-2xl border border-gray-100 bg-cream-light/60 hover:border-recyora-green transition-all group">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-3xl"><i class="fa-solid fa-monument text-recyora-dark"></i></span>
+                        <span class="px-2.5 py-1 bg-recyora-dark text-white text-[10px] font-bold rounded-full">مركز تجاري</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-recyora-dark" data-i18n="reg_me">الشرق الأوسط</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed" data-i18n="reg_me_desc">مراكز إعادة تجميع، وتوريد للأسواق الإقليمية، وإدارة منظومات الجمع الذكية للبلديات.</p>
+                </div>
+
+                <!-- Region 2 -->
+                <div class="p-6 rounded-2xl border border-gray-100 bg-cream-light/60 hover:border-recyora-green transition-all group">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-3xl"><i class="fa-solid fa-earth-africa text-recyora-green"></i></span>
+                        <span class="px-2.5 py-1 bg-recyora-green text-white text-[10px] font-bold rounded-full">سوق واعد</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-recyora-dark" data-i18n="reg_af">أفريقيا</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed" data-i18n="reg_af_desc">أسواق إعادة الاستخدام النشطة وتوزيع درجات الملابس المتنوعة بأسعار تنافسية.</p>
+                </div>
+
+                <!-- Region 3 -->
+                <div class="p-6 rounded-2xl border border-gray-100 bg-cream-light/60 hover:border-recyora-green transition-all group">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-3xl"><i class="fa-solid fa-earth-americas text-emerald-700"></i></span>
+                        <span class="px-2.5 py-1 bg-emerald-700 text-white text-[10px] font-bold rounded-full">شراكات استيراد</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-recyora-dark" data-i18n="reg_latam">أمريكا اللاتينية</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed" data-i18n="reg_latam_desc">شبكات توزيع متنامية وتوفير خامات الأقمشة المصنفة للمصانع المحلية.</p>
+                </div>
+
+                <!-- Region 4 -->
+                <div class="p-6 rounded-2xl border border-gray-100 bg-cream-light/60 hover:border-recyora-green transition-all group">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-3xl"><i class="fa-solid fa-earth-europe text-recyora-dark"></i></span>
+                        <span class="px-2.5 py-1 bg-recyora-dark text-white text-[10px] font-bold rounded-full">مصدر تجميع رئيسي</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-recyora-dark" data-i18n="reg_eu">أوروبا</h3>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed" data-i18n="reg_eu_desc">مصدر رئيسي للملابس ذات الجودة العالية ومراكز التقنيات والتدوير المستدام.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-recyora-dark text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-recyora-light font-bold text-sm tracking-widest uppercase bg-white/10 px-3 py-1 rounded-full border border-white/20" data-i18n="contact_subtitle">تواصل معنا</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold" data-i18n="contact_title">هل أنت جاهز لبدء دورة جديدة لشحناتك؟</h2>
+                    <p class="text-gray-300 text-sm leading-relaxed" data-i18n="contact_desc">
+                        فريقنا الخبير في التجارة الدولية والحلول اللوجستية جاهز للإجابة على جميع استفسارات الموردين والمستوردين والجهات الحكومية.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-recyora-green flex items-center justify-center text-white text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-400" data-i18n="c_email">البريد الإلكتروني المباشر:</div>
+                                <div class="font-bold text-sm">info@recyora.com</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-recyora-green flex items-center justify-center text-white text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-400" data-i18n="c_phone">الهاتف / المبيعات الدولية:</div>
+                                <div class="font-bold text-sm" dir="ltr">+966 11 000 0000 / +44 20 0000 0000</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-recyora-green flex items-center justify-center text-white text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-400" data-i18n="c_location">المقرات الرئيسية:</div>
+                                <div class="font-bold text-sm" data-i18n="c_cities">الرياض • دبي • لندن • نيروبي</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7 bg-white rounded-3xl p-8 text-gray-800 shadow-2xl">
+                    <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1" data-i18n="form_name">الاسم الكامل</label>
+                                <input type="text" required class="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-recyora-green focus:border-recyora-green text-sm bg-gray-50" placeholder="محمد أحمد">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1" data-i18n="form_email">البريد الإلكتروني</label>
+                                <input type="email" required class="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-recyora-green focus:border-recyora-green text-sm bg-gray-50" placeholder="name@company.com">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1" data-i18n="form_company">اسم الشركة / المؤسسة</label>
+                                <input type="text" class="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-recyora-green focus:border-recyora-green text-sm bg-gray-50" placeholder="شركة التجارة العالمية">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1" data-i18n="form_interest">طبيعة الاستفسار</label>
+                                <select class="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-recyora-green focus:border-recyora-green text-sm bg-gray-50">
+                                    <option data-i18n="opt_1">شراء شحنات ملابس مستعملة</option>
+                                    <option data-i18n="opt_2">بيع وتوريد ملابس تجميع</option>
+                                    <option data-i18n="opt_3">طلب أنظمة وحاويات تجميع ذكية</option>
+                                    <option data-i18n="opt_4">شراكة لوجستية أو استثمارية</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1" data-i18n="form_msg">رسالتك</label>
+                            <textarea rows="4" required class="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-recyora-green focus:border-recyora-green text-sm bg-gray-50" placeholder="اكتب التفاصيل المتوقعة للكمية، الدول المستهدفة، أو أي مواصفات خاصة..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-recyora-green hover:bg-recyora-dark text-white font-extrabold rounded-xl transition-all shadow-md text-center text-sm">
+                            <span data-i18n="form_submit">إرسال الرسالة إلى فريق ريسيورا</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 left-5 right-5 md:left-auto md:right-5 bg-recyora-dark text-white px-6 py-4 rounded-2xl shadow-2xl z-50 transform translate-y-32 transition-transform duration-300 border border-recyora-light/30 flex items-center gap-3 max-w-md">
+        <i class="fa-solid fa-circle-check text-recyora-light text-2xl"></i>
+        <div>
+            <div class="font-bold text-sm" id="toastTitle">تم الاستلام بنجاح</div>
+            <div class="text-xs text-gray-300" id="toastDesc">شكراً لتواصلك. سيقوم ممثل ريسيورا بالتواصل معك خلال 24 ساعة.</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-emerald-950 text-white border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                
+                <!-- Brand Info -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-recyora-green flex items-center justify-center text-white text-xl">
+                        <i class="fa-solid fa-leaf text-recyora-light"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-black text-white">Recyora ®</span>
+                        <div class="text-xs text-gray-400" data-i18n="tagline_short">دورة جديدة. قيمة جديدة.</div>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-300">
+                    <a href="#about" class="hover:text-recyora-light" data-i18n="nav_about">عن ريسيورا</a>
+                    <a href="#pillars" class="hover:text-recyora-light" data-i18n="nav_pillars">ركائزنا</a>
+                    <a href="#solutions" class="hover:text-recyora-light" data-i18n="nav_solutions">الحلول الذكية</a>
+                    <a href="#calculator" class="hover:text-recyora-light" data-i18n="nav_calculator">حاسبة التجارة</a>
+                    <a href="#coverage" class="hover:text-recyora-light" data-i18n="nav_coverage">النطاق العالمي</a>
+                </div>
+
+                <!-- Social Links -->
+                <div class="flex items-center gap-4 text-gray-300">
+                    <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-recyora-green transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-recyora-green transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-recyora-green transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 mt-8 pt-8 text-center text-xs text-gray-400">
+                <p>&copy; <span id="currentYear"></span> Recyora ®. <span data-i18n="footer_rights">جميع الحقوق محفوظة. دورة جديدة. قيمة جديدة.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Set dynamic current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Internationalization (i18n) Translations Object
+        const translations = {
+            ar: {
+                tagline_short: "دورة جديدة. قيمة جديدة.",
+                nav_about: "عن ريسيورا",
+                nav_pillars: "ركائزنا",
+                nav_solutions: "الحلول الذكية",
+                nav_calculator: "حاسبة التجارة",
+                nav_coverage: "النطاق العالمي",
+                nav_contact: "تواصل معنا",
+                nav_cta: "اطلب عرض سعر",
+                hero_badge: "وسيط عالمي مالي ولوجستي للملابس المستعملة",
+                hero_title: "دورة جديدة. قيمة جديدة.",
+                hero_desc: "ربط الموردين والتجار في الشرق الأوسط، أفريقيا، أمريكا اللاتينية، وأوروبا. نقدم منصة متكاملة للحلول الذكية لإدارة وتجميع وإعادة تدوير الملابس المستعملة وفق أعلى المعايير المستدامة.",
+                hero_cta_primary: "حساب تكلفة الشحنة / العرض",
+                hero_cta_secondary: "استكشف الحلول الذكية",
+                stat_tons: "طن من الملابس سنوياً",
+                stat_continents: "قارات مغطاة بفعالية",
+                stat_partners: "شريك ومورد موثوق",
+                card_title: "المنظومة التداولية الذكية",
+                card_subtitle: "من الجمع والفرز إلى الشحن والدعم اللوجستي العالمي",
+                pill_1: "1. نجمع (Collect)",
+                pill_1_sub: "حلول تجميع IoT",
+                pill_2: "2. نُعيد الاستخدام",
+                pill_2_sub: "وساطة وفرز جودة",
+                pill_3: "3. نُعيد التدوير",
+                pill_3_sub: "معالجة صديقة للبيئة",
+                pill_4: "4. نَصنع قيمة",
+                pill_4_sub: "أسواق دولية جديدة",
+                about_subtitle: "عن الشركة",
+                about_title: "الوسيط العالمي الموثوق لتجارة وإدارة الملابس المستعملة",
+                about_c1_title: "ربط الأقاليم العالمية",
+                about_c1_desc: "نعمل كجسر لوجستي وتجاري بين الأسواق الكبرى في أوروبا، الشرق الأوسط، أفريقيا، وأمريكا اللاتينية لضمان التدفق السلس للشحنات عالية الجودة.",
+                about_c2_title: "حلول التجميع الذكي",
+                about_c2_desc: "نوفر تقنيات الحاويات الذكية (IoT) ومحطات الفرز الرقمية التي تمكّن البلديات والشركات من تتبع كميات الجمع وإدارتها بكفاءة عالية.",
+                about_c3_title: "ضمان الجودة والشفافية",
+                about_c3_desc: "نعتمد معايير فرز وتصنيف صارمة (Grade A, B, C, Vintage, Rags) لضمان حصول المشتري على الفئات المطابقة تماماً للمواصفات المطلوبة.",
+                pillars_subtitle: "دورة العمل في ريسيورا",
+                pillars_title: "الركائز الأربع للتحول المستدام",
+                pillars_desc: "نموذج تشغيلي شامل يدعم الاستدامة الاقتصادية والبيئية في كافة المراحل",
+                p1_step: "المرحلة 01",
+                p1_title: "Collect / نجمع",
+                p1_desc: "تجميع ودعم الخدمات اللوجستية للملابس المستعملة باستخدام التقنيات الذكية ومحاور الجمع المنظمة.",
+                p2_step: "المرحلة 02",
+                p2_title: "Reuse / نُعيد الاستخدام",
+                p2_desc: "تسهيل عمليات التجارة والوساطة للملابس القابلة للارتداء مجدداً وضمان تصنيفها بدقة للأسواق.",
+                p3_step: "المرحلة 03",
+                p3_title: "Recycle / نُعيد التدوير",
+                p3_desc: "تحويل النسيج التالف أو غير القابل للارتداء إلى ألياف خام وصناعات نسيجية صديقة للبيئة.",
+                p4_step: "المرحلة 04",
+                p4_title: "Create Value / نَصنع قيمة",
+                p4_desc: "تعظيم العوائد للشركاء والمجتمعات من خلال خلق أسواق اقتصاد دائرية وعوائد مستدامة.",
+                sol_subtitle: "التقنيات المستقلة",
+                sol_title: "حلول ذكية لإدارة وتجميع الملابس المستعملة",
+                sol_desc: "نفرّد منظومتنا بتوفير حلول رقمية وهندسية متكاملة للبلديات، الجمعيات، والمؤسسات لتسهيل تجميع النسيج المستعمل وإدارته بكفاءة عالية.",
+                sol_f1_title: "حاويات جمع ذكية مدعومة بالـ IoT",
+                sol_f1_desc: "مستشعرات قياس نسبة الامتلاء الفوري، التنبيه الذاتي للشرائح اللوجستية، وتفادي الطفح.",
+                sol_f2_title: "منظومة الفرز والخدمات اللوجستية",
+                sol_f2_desc: "خطط مسارات تجميع محسّنة خوارزمياً لتقليل الانبعاثات الكربونية للشاحنات بنسبة تصل إلى 35%.",
+                sol_f3_title: "لوحة تحليلات وتتبع الشحنات",
+                sol_f3_desc: "منصة رقمية موحدة للعملاء لمتابعة حركة الشحنات، أوزان الملابس، والتأثير البيئي بدقة.",
+                dashboard_preview_title: "لوحة تتبع الحاويات الذكية",
+                dash_bin: "حاوية رقم: #RY-8802 (الرياض)",
+                dash_status: "الحالة: نوصي بالإخلاء اليوم",
+                dash_weight: "الوزن التقديري:",
+                dash_grade: "الفئة الغالبة:",
+                dash_live: "تحديث مباشر مستمر",
+                dash_demo: "طلب نسخة تجريبية ←",
+                calc_subtitle: "خدمات الوساطة والتوريد",
+                calc_title: "حاسبة تقدير الشحنات والطلب الفوري",
+                calc_desc: "حدد متطلباتك من الملابس المستعملة واحصل على تقدير أولي لخدمات الشحن والتوريد",
+                calc_role_label: "1. بصفتك:",
+                calc_role_buyer: "مشتري / مستورد",
+                calc_role_seller: "مورد / جامع ملابس",
+                calc_role_tech: "طلب نظام جمع ذكي",
+                calc_region_label: "2. المنطقة الجغرافية المستهدفة:",
+                region_me: "الشرق الأوسط وشمال أفريقيا (MENA)",
+                region_af: "أفريقيا (Sub-Saharan Africa)",
+                region_eu: "أوروبا (Europe)",
+                region_latam: "أمريكا اللاتينية (Latin America)",
+                calc_grade_label: "3. الفئة والمواصفة (Grade):",
+                grade_a: "فئة أ ممتاز (Grade A - Cream Quality)",
+                grade_b: "فئة ب جيدة جداً (Grade B - Standard Mix)",
+                grade_v: "فينتج ومصممين (Vintage & Branded)",
+                grade_r: "قطع قماش للتدوير Industrial Rags / Recycling",
+                calc_vol_label: "4. الكمية المطلوبة / المعروضة (بالأطنان):",
+                calc_res_title: "التقدير المبدئي للسعة والخدمات اللوجستية:",
+                calc_res_sub: "*يشمل الفرز والخدمات اللوجستية وتغطية التأمين التصديري",
+                calc_submit: "تأكيد إرسال الطلب الرسمي",
+                map_subtitle: "شبكة العمليات العالمية",
+                map_title: "تغطي عملياتنا أربع قارات رئيسية",
+                map_desc: "نصل بين مناطق الجمع العالية الحجم ومناطق الطلب النشط لإنشاء منظومة مستدامة",
+                reg_me: "الشرق الأوسط",
+                reg_me_desc: "مراكز إعادة تجميع، وتوريد للأسواق الإقليمية، وإدارة منظومات الجمع الذكية للبلديات.",
+                reg_af: "أفريقيا",
+                reg_af_desc: "أسواق إعادة الاستخدام النشطة وتوزيع درجات الملابس المتنوعة بأسعار تنافسية.",
+                reg_latam: "أمريكا اللاتينية",
+                reg_latam_desc: "شبكات توزيع متنامية وتوفير خامات الأقمشة المصنفة للمصانع المحلية.",
+                reg_eu: "أوروبا",
+                reg_eu_desc: "مصدر رئيسي للملابس ذات الجودة العالية ومراكز التقنيات والتدوير المستدام.",
+                contact_subtitle: "تواصل معنا",
+                contact_title: "هل أنت جاهز لبدء دورة جديدة لشحناتك؟",
+                contact_desc: "فريقنا الخبير في التجارة الدولية والحلول اللوجستية جاهز للإجابة على جميع استفسارات الموردين والمستوردين والجهات الحكومية.",
+                c_email: "البريد الإلكتروني المباشر:",
+                c_phone: "الهاتف / المبيعات الدولية:",
+                c_location: "المقرات الرئيسية:",
+                c_cities: "الرياض • دبي • لندن • نيروبي",
+                form_name: "الاسم الكامل",
+                form_email: "البريد الإلكتروني",
+                form_company: "اسم الشركة / المؤسسة",
+                form_interest: "طبيعة الاستفسار",
+                opt_1: "شراء شحنات ملابس مستعملة",
+                opt_2: "بيع وتوريد ملابس تجميع",
+                opt_3: "طلب أنظمة وحاويات تجميع ذكية",
+                opt_4: "شراكة لوجستية أو استثمارية",
+                form_msg: "رسالتك",
+                form_submit: "إرسال الرسالة إلى فريق ريسيورا",
+                footer_rights: "جميع الحقوق محفوظة. دورة جديدة. قيمة جديدة.",
+                toast_title: "تم الاستلام بنجاح",
+                toast_desc: "شكراً لتواصلك. سيقوم ممثل ريسيورا بالتواصل معك خلال 24 ساعة."
+            },
+            en: {
+                tagline_short: "A New Cycle. A New Value.",
+                nav_about: "About Us",
+                nav_pillars: "Four Pillars",
+                nav_solutions: "Smart Solutions",
+                nav_calculator: "Trade Calculator",
+                nav_coverage: "Global Network",
+                nav_contact: "Contact Us",
+                nav_cta: "Request Quote",
+                hero_badge: "Global Financial & Logistics Broker for Used Clothing",
+                hero_title: "A New Cycle. A New Value.",
+                hero_desc: "Connecting suppliers and buyers across Middle East, Africa, Latin America, and Europe. Providing smart technology solutions for used clothing collection, sorting, and sustainable recycling.",
+                hero_cta_primary: "Calculate Shipment Quote",
+                hero_cta_secondary: "Explore Smart Tech",
+                stat_tons: "Tons Collected Annually",
+                stat_continents: "Continents Seamlessly Connected",
+                stat_partners: "Trusted Trade Partners",
+                card_title: "Smart Eco Circular Platform",
+                card_subtitle: "From Smart Collection & Sorting to International Logistics",
+                pill_1: "1. Collect / نجمع",
+                pill_1_sub: "IoT Smart Collection",
+                pill_2: "2. Reuse / نُعيد الاستخدام",
+                pill_2_sub: "Brokerage & Grading",
+                pill_3: "3. Recycle / نُعيد التدوير",
+                pill_3_sub: "Eco Textile Recycling",
+                pill_4: "4. Create Value / نَصنع قيمة",
+                pill_4_sub: "New Global Markets",
+                about_subtitle: "ABOUT RECYORA",
+                about_title: "Your Trusted Global Intermediary for Used Clothing",
+                about_c1_title: "Connecting Global Regions",
+                about_c1_desc: "Bridging major supply and demand markets across Europe, Middle East, Africa, and Latin America with smooth trade flow.",
+                about_c2_title: "Smart Collection Tech",
+                about_c2_desc: "Providing IoT smart bins and digital sorting hubs allowing municipalities and collectors to track volumes efficiently.",
+                about_c3_title: "Quality Assurance",
+                about_c3_desc: "Strict grading standards (Grade A, B, C, Vintage, Rags) ensuring buyers receive exactly what they order.",
+                pillars_subtitle: "THE RECYORA PROCESS",
+                pillars_title: "Four Pillars of Sustainable Transformation",
+                pillars_desc: "An end-to-end operational model driving both economic and environmental circular value.",
+                p1_step: "STAGE 01",
+                p1_title: "Collect",
+                p1_desc: "Intelligent logistics and smart IoT bins for efficient used clothing collection.",
+                p2_step: "STAGE 02",
+                p2_title: "Reuse",
+                p2_desc: "Seamless trading and brokerage for wearable garments with high-grade sorting.",
+                p3_step: "STAGE 03",
+                p3_title: "Recycle",
+                p3_desc: "Transforming unwearable textiles into eco-friendly raw fibers and industrial materials.",
+                p4_step: "STAGE 04",
+                p4_title: "Create Value",
+                p4_desc: "Maximizing economic returns for partners through circular economy marketplaces.",
+                sol_subtitle: "PROPRIETARY TECH",
+                sol_title: "Smart Collection & Textile Management Systems",
+                sol_desc: "Empowering municipalities, NGOs, and commercial sorters with smart IoT sensors and tracking analytics.",
+                sol_f1_title: "IoT Smart Bins",
+                sol_f1_desc: "Real-time fill-level sensors, automated dispatch alerts, and overflow prevention.",
+                sol_f2_title: "Optimized Logistics Engine",
+                sol_f2_desc: "AI route optimization reducing collection fleet CO2 emissions by up to 35%.",
+                sol_f3_title: "Traceability Dashboard",
+                sol_f3_desc: "Single dashboard for clients to monitor shipment weights, origins, and sustainability metrics.",
+                dashboard_preview_title: "Smart Bin Live Monitor",
+                dash_bin: "Bin ID: #RY-8802 (Riyadh)",
+                dash_status: "Status: Pickup Recommended Today",
+                dash_weight: "Estimated Weight:",
+                dash_grade: "Dominant Grade:",
+                dash_live: "Live Realtime Sync",
+                dash_demo: "Request Live Demo ←",
+                calc_subtitle: "BROKERAGE & SUPPLY",
+                calc_title: "Shipment Estimator & Quote Request",
+                calc_desc: "Select your criteria to receive an instant estimate for supply or collection brokerage",
+                calc_role_label: "1. You are a:",
+                calc_role_buyer: "Buyer / Importer",
+                calc_role_seller: "Supplier / Collector",
+                calc_role_tech: "Smart Collection Request",
+                calc_region_label: "2. Target Region:",
+                region_me: "Middle East & North Africa (MENA)",
+                region_af: "Sub-Saharan Africa",
+                region_eu: "Europe",
+                region_latam: "Latin America",
+                calc_grade_label: "3. Textile Grade / Specification:",
+                grade_a: "Grade A Premium (Cream Quality)",
+                grade_b: "Grade B Standard Mix",
+                grade_v: "Vintage & Branded",
+                grade_r: "Industrial Rags / Recycling",
+                calc_vol_label: "4. Volume Required (in Metric Tons):",
+                calc_res_title: "Estimated Logistic & Brokerage Value:",
+                calc_res_sub: "*Includes sorting, export logistics, and trade insurance coverage",
+                calc_submit: "Submit Formal Inquiry",
+                map_subtitle: "GLOBAL REACH",
+                map_title: "Operating Across 4 Strategic Continents",
+                map_desc: "Seamlessly linking high-volume collection hubs with high-demand distribution markets.",
+                reg_me: "Middle East",
+                reg_me_desc: "Hub for regional re-exportation, logistics, and municipal smart bin deployments.",
+                reg_af: "Africa",
+                reg_af_desc: "Thriving re-wear markets receiving certified quality graded clothing bales.",
+                reg_latam: "Latin America",
+                reg_latam_desc: "Growing distribution networks and raw industrial fiber supply.",
+                reg_eu: "Europe",
+                reg_eu_desc: "Primary collection source for high-grade originals and recycling technology.",
+                contact_subtitle: "GET IN TOUCH",
+                contact_title: "Ready to Create a New Cycle for Your Textiles?",
+                contact_desc: "Our global trade experts are ready to assist suppliers, buyers, and government partners worldwide.",
+                c_email: "Direct Email:",
+                c_phone: "International Desk:",
+                c_location: "Main Offices:",
+                c_cities: "Riyadh • Dubai • London • Nairobi",
+                form_name: "Full Name",
+                form_email: "Email Address",
+                form_company: "Company Name",
+                form_interest: "Primary Inquiry Type",
+                opt_1: "Purchase Used Clothing Shipments",
+                opt_2: "Supply / Sell Used Clothing Balings",
+                opt_3: "Deploy Smart Collection Bins / Tech",
+                opt_4: "Logistics or Investment Partnership",
+                form_msg: "Message Details",
+                form_submit: "Send Message to Recyora Team",
+                footer_rights: "All Rights Reserved. A New Cycle. A New Value.",
+                toast_title: "Request Received",
+                toast_desc: "Thank you for reaching out. A Recyora specialist will contact you within 24 hours."
+            }
+        };
+
+        let currentLang = 'ar';
+        let currentRole = 'buyer';
+
+        // Language Switching Logic
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const html = document.documentElement;
+            
+            // Set direction and lang attributes
+            html.lang = currentLang;
+            html.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+            // Toggle language button text
+            document.getElementById('langText').textContent = currentLang === 'ar' ? 'English' : 'العربية';
+            document.getElementById('mobileLangText').textContent = currentLang === 'ar' ? 'EN' : 'عربي';
+
+            // Translate all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+
+            // Update volume display text suffix
+            updateVolume(document.getElementById('volumeSlider').value);
+        }
+
+        // Role Setter for Estimator
+        function setRole(role) {
+            currentRole = role;
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`role-${role}`).classList.add('active');
+            calculateEstimate();
+        }
+
+        // Volume Slider Handler
+        function updateVolume(val) {
+            const unit = currentLang === 'ar' ? 'طن' : 'Tons';
+            document.getElementById('volumeValue').textContent = `${val} ${unit}`;
+            calculateEstimate();
+        }
+
+        // Estimate Dynamic Calculation
+        function calculateEstimate() {
+            const vol = parseInt(document.getElementById('volumeSlider').value);
+            const grade = document.getElementById('gradeSelect').value;
+            let basePricePerTon = 700;
+
+            if (grade === 'grade_a') basePricePerTon = 1100;
+            if (grade === 'grade_b') basePricePerTon = 750;
+            if (grade === 'vintage') basePricePerTon = 2400;
+            if (grade === 'rags') basePricePerTon = 350;
+
+            const minEstimate = Math.round(vol * basePricePerTon * 0.9);
+            const maxEstimate = Math.round(vol * basePricePerTon * 1.15);
+
+            document.getElementById('estimatedPrice').textContent = `~ $${minEstimate.toLocaleString()} - $${maxEstimate.toLocaleString()}`;
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Form Handlers & Toast Notification
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+            showToast();
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            showToast();
+            e.target.reset();
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastTitle').textContent = translations[currentLang]['toast_title'];
+            document.getElementById('toastDesc').textContent = translations[currentLang]['toast_desc'];
+
+            toast.classList.remove('translate-y-32');
+            setTimeout(() => {
+                toast.classList.add('translate-y-32');
+            }, 4000);
+        }
+
+        // Initialize calculation on load
+        calculateEstimate();
+    </script>
+</body>
+</html>
