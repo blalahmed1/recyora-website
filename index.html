@@ -61,7 +61,6 @@
             width: calc(100% + 1.3px);
             height: 60px;
         }
-        /* RTL & LTR specific tweaks */
         [dir="rtl"] .ltr-only { display: none !important; }
         [dir="ltr"] .rtl-only { display: none !important; }
         
@@ -75,30 +74,16 @@
 <body class="antialiased selection:bg-Reycora-light selection:text-Reycora-dark">
 
     <!-- ========================================================= -->
-    <!-- 1. HEADER / NAVIGATION BAR (شريط التنقل العلوي) -->
+    <!-- 1. HEADER / NAVIGATION BAR (شريط التنقل العلوي مع اللوجو) -->
     <!-- ========================================================= -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all duration-300 shadow-sm" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 
-                <!-- Logo (Reycora مع دمج ورقة الشجر داخل حرف O) -->
-<a href="#" class="flex items-center gap-3 group">
-    <div class="flex flex-col">
-        <div class="flex items-center text-2xl font-extrabold tracking-tight text-Reycora-dark">
-            <span>Reyc</span>
-            <!-- حرف O المدمج مع أيقونة ورقة الشجر -->
-            <span class="relative inline-flex items-center justify-center mx-[1px]">
-                <span class="text-Reycora-dark">o</span>
-                <i class="fa-solid fa-leaf text-Reycora-light text-[0.55em] absolute -top-[1px] right-[1px] transform rotate-12"></i>
-            </span>
-            <span>ra</span>
-            <span class="text-xs font-normal text-Reycora-green border border-Reycora-green/30 px-1 py-0.5 rounded-full ml-1 rtl:ml-0 rtl:mr-1">®</span>
-        </div>
-        <span class="text-[11px] text-Reycora-gray font-medium tracking-wide">
-            <span data-i18n="tagline_short">دورة جديدة. قيمة جديدة.</span>
-        </span>
-    </div>
-</a>
+                <!-- Official Image Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <img src="Reycora logo.jpeg" alt="Reycora Logo" class="h-12 md:h-14 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                </a>
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-700">
@@ -153,7 +138,7 @@
     </header>
 
     <!-- ========================================================= -->
-    <!-- 2. HERO SECTION (القسم الرئيسي / واجهة الموقع) -->
+    <!-- 2. HERO SECTION -->
     <!-- ========================================================= -->
     <section class="relative bg-gradient-to-b from-Reycora-dark to-emerald-950 text-white overflow-hidden pt-12 pb-24 md:pt-20 md:pb-32">
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#8BC34A_1px,transparent_1px)] [background-size:16px_16px]"></div>
@@ -161,7 +146,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
-                <!-- Hero Content -->
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-right" id="heroTextContainer">
                     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-Reycora-green/30 border border-Reycora-light/40 text-Reycora-light font-medium text-xs md:text-sm">
                         <i class="fa-solid fa-earth-americas"></i>
@@ -190,7 +174,6 @@
                         </a>
                     </div>
 
-                    <!-- Statistics Counter Bar -->
                     <div class="pt-10 grid grid-cols-3 gap-4 border-t border-white/15 mt-8">
                         <div>
                             <div class="text-2xl sm:text-3xl font-extrabold text-Reycora-light" id="stat1">+150K</div>
@@ -207,7 +190,6 @@
                     </div>
                 </div>
 
-                <!-- Hero Graphics/Illustration Card -->
                 <div class="lg:col-span-5 relative">
                     <div class="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-white/10 to-white/5 p-6 border border-white/20 backdrop-blur-md">
                         <div class="space-y-6">
@@ -257,7 +239,6 @@
             </div>
         </div>
 
-        <!-- Wave Divider Bottom -->
         <div class="custom-shape-divider-bottom text-fcfbf7 fill-current">
             <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,121.61,192,117.8,235.8,115.1,279.16,102.1,321.39,56.44Z"></path>
@@ -266,7 +247,7 @@
     </section>
 
     <!-- ========================================================= -->
-    <!-- 3. ABOUT SECTION (قسم عن ريكورا) -->
+    <!-- 3. ABOUT SECTION -->
     <!-- ========================================================= -->
     <section id="about" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -311,7 +292,7 @@
     </section>
 
     <!-- ========================================================= -->
-    <!-- 4. CORE PILLARS SECTION (قسم ركائزنا الأربع) -->
+    <!-- 4. CORE PILLARS SECTION -->
     <!-- ========================================================= -->
     <section id="pillars" class="py-20 bg-Reycora-cream/30 border-y border-Reycora-cream">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -374,7 +355,7 @@
     </section>
 
     <!-- ========================================================= -->
-    <!-- 5. SMART SOLUTIONS SECTION (قسم الحلول والتقنيات الذكية) -->
+    <!-- 5. SMART SOLUTIONS SECTION -->
     <!-- ========================================================= -->
     <section id="solutions" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -469,7 +450,7 @@
     </section>
 
     <!-- ========================================================= -->
-    <!-- 6. CALCULATOR SECTION (قسم حاسبة الشحنات والطلب الفوري) -->
+    <!-- 6. CALCULATOR SECTION -->
     <!-- ========================================================= -->
     <section id="calculator" class="py-20 bg-cream-light border-t border-Reycora-cream">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -482,7 +463,6 @@
             <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-6 md:p-10 border border-gray-100">
                 <form id="quoteForm" onsubmit="handleQuoteSubmit(event)" class="space-y-8">
                     
-                    <!-- المفتاح الخاص بـ Web3Forms مدمج هنا -->
                     <input type="hidden" name="access_key" value="ffecc184-6a4c-46a5-b680-18f4cfb2de25">
                     <input type="hidden" name="role_type" id="hiddenRoleInput" value="مشتري / مستورد">
 
@@ -517,7 +497,6 @@
                             </select>
                         </div>
 
-                        <!-- Step 3: Grade Quality Selection -->
                         <div>
                             <label class="block text-sm font-bold text-Reycora-dark mb-2" data-i18n="calc_grade_label">3. الفئة والمواصفة (Grade):</label>
                             <select name="garment_grade" id="gradeSelect" onchange="calculateEstimate()" class="w-full p-3.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-Reycora-green focus:border-Reycora-green bg-gray-50 text-sm font-medium">
@@ -590,7 +569,7 @@
     </section>
 
     <!-- ========================================================= -->
-    <!-- 7. GLOBAL COVERAGE SECTION (قسم النطاق والتغطية العالمية) -->
+    <!-- 7. GLOBAL COVERAGE SECTION -->
     <!-- ========================================================= -->
     <section id="coverage" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -641,7 +620,7 @@
     </section>
 
     <!-- ========================================================= -->
-    <!-- 8. CONTACT SECTION (قسم نموذج التواصل الإضافي) -->
+    <!-- 8. CONTACT SECTION -->
     <!-- ========================================================= -->
     <section id="contact" class="py-20 bg-Reycora-dark text-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -734,7 +713,7 @@
     </section>
 
     <!-- ========================================================= -->
-    <!-- 9. TOAST NOTIFICATION (تنبيه استلام الطلب) -->
+    <!-- 9. TOAST NOTIFICATION -->
     <!-- ========================================================= -->
     <div id="toast" class="fixed bottom-5 left-5 right-5 md:left-auto md:right-5 bg-Reycora-dark text-white px-6 py-4 rounded-2xl shadow-2xl z-50 transform translate-y-32 transition-transform duration-300 border border-Reycora-light/30 flex items-center gap-3 max-w-md">
         <i class="fa-solid fa-circle-check text-Reycora-light text-2xl"></i>
@@ -745,20 +724,15 @@
     </div>
 
     <!-- ========================================================= -->
-    <!-- 10. FOOTER (تذييل الصفحة السفي) -->
+    <!-- 10. FOOTER (تذييل الصفحة السفي مع الشعار الرسمي) -->
     <!-- ========================================================= -->
     <footer class="bg-emerald-950 text-white border-t border-white/10 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8">
                 
+                <!-- Footer Image Logo -->
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-Reycora-green flex items-center justify-center text-white text-xl">
-                        <i class="fa-solid fa-leaf text-Reycora-light"></i>
-                    </div>
-                    <div>
-                        <span class="text-xl font-black text-white">Reycora ®</span>
-                        <div class="text-xs text-gray-400" data-i18n="tagline_short">دورة جديدة. قيمة جديدة.</div>
-                    </div>
+                    <img src="Reycora logo.jpeg" alt="Reycora Logo" class="h-10 w-auto object-contain brightness-0 invert">
                 </div>
 
                 <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-300">
@@ -784,7 +758,7 @@
     </footer>
 
     <!-- ========================================================= -->
-    <!-- 11. JAVASCRIPT LOGIC (برمجة التفاعل والإرسال المباشر) -->
+    <!-- 11. JAVASCRIPT LOGIC -->
     <!-- ========================================================= -->
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
@@ -1233,7 +1207,6 @@
             menu.classList.toggle('hidden');
         }
 
-        // دالة إرسال نموذج الحاسبة عبر Web3Forms
         async function handleQuoteSubmit(e) {
             e.preventDefault();
             
@@ -1273,7 +1246,6 @@
             }
         }
 
-        // دالة إرسال نموذج التواصل الإضافي عبر Web3Forms
         async function handleContactSubmit(e) {
             e.preventDefault();
             
