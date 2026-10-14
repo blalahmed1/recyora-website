@@ -81,20 +81,24 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-12 h-12 rounded-full bg-Reycora-dark flex items-center justify-center text-white text-2xl font-bold shadow-md group-hover:scale-105 transition-transform">
-                        <i class="fa-solid fa-leaf text-Reycora-light"></i>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="text-2xl font-extrabold tracking-tight text-Reycora-dark flex items-center gap-1">
-                            Reycora <span class="text-xs font-normal text-Reycora-green border border-Reycora-green/30 px-1.5 py-0.5 rounded-full">®</span>
-                        </span>
-                        <span class="text-xs text-Reycora-gray font-medium tracking-wide">
-                            <span data-i18n="tagline_short">دورة جديدة. قيمة جديدة.</span>
-                        </span>
-                    </div>
-                </a>
+                <!-- Logo (Reycora مع دمج ورقة الشجر داخل حرف O) -->
+<a href="#" class="flex items-center gap-3 group">
+    <div class="flex flex-col">
+        <div class="flex items-center text-2xl font-extrabold tracking-tight text-Reycora-dark">
+            <span>Reyc</span>
+            <!-- حرف O المدمج مع أيقونة ورقة الشجر -->
+            <span class="relative inline-flex items-center justify-center mx-[1px]">
+                <span class="text-Reycora-dark">o</span>
+                <i class="fa-solid fa-leaf text-Reycora-light text-[0.55em] absolute -top-[1px] right-[1px] transform rotate-12"></i>
+            </span>
+            <span>ra</span>
+            <span class="text-xs font-normal text-Reycora-green border border-Reycora-green/30 px-1 py-0.5 rounded-full ml-1 rtl:ml-0 rtl:mr-1">®</span>
+        </div>
+        <span class="text-[11px] text-Reycora-gray font-medium tracking-wide">
+            <span data-i18n="tagline_short">دورة جديدة. قيمة جديدة.</span>
+        </span>
+    </div>
+</a>
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-700">
